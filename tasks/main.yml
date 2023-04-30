@@ -1,21 +1,21 @@
 ---
 # tasks file for ansible-users
 
-- name: ansible-users | prerequisites
+- name: Prerequisites
   ansible.builtin.import_tasks: deps.yml
   when: standalone_role
 
-- name: ansible-users | loop over users_group_list for local users
+- name: Loop over users_group_list for local users
   ansible.builtin.include_tasks: local-groups.yml
   when:
     - local_users_group_list is defined
 
-- name: ansible-users | loop over users_user_list for local users
+- name: Loop over users_user_list for local users
   ansible.builtin.include_tasks: local-users.yml
   when:
     - local_users_user_list is defined
 
-- name: ansible-users | loop over systemusers_user_list
+- name: Loop over systemusers_user_list
   ansible.builtin.include_tasks: system-users.yml
   loop: "{{ local_systemusers_user_list }}"
   loop_control:

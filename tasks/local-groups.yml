@@ -1,6 +1,6 @@
 ---
 
-- name: ansible-users | local-groups | manage local-group with robertdebock role
+- name: Local-groups | manage local-group with robertdebock role
   ansible.builtin.include_role:
     name: robertdebock.users
   vars:
