@@ -1,6 +1,6 @@
 ---
 
-- name: ansible-users | system-users | manage systemusers {{ user.name }}
+- name: System-users | manage systemusers {{ user.name }}
   ansible.builtin.user:
     name: "{{ user.name }}"
     state: "{{ user.state | default('present') }}"
