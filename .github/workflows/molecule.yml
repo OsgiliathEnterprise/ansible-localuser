@@ -50,6 +50,6 @@ jobs:
           pip3 install wheel setuptools setuptools-rust tox
       - name: execute molecule
         run: |
-          mv ../ansible-users ../tcharl.ansible_localuser
+          mv ../ansible-localuser ../tcharl.ansible_localuser
           tox -e test-exec
           mv ../tcharl.ansible_localuser ../ansible-localuser
