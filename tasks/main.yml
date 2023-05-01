@@ -2,8 +2,10 @@
 # tasks file for ansible-users
 
 - name: Prerequisites
-  ansible.builtin.import_tasks: deps.yml
+  ansible.builtin.import_tasks: requirements.yml
   when: standalone_role
+  tags:
+   - standalone_role
 
 - name: Loop over users_group_list for local users
   ansible.builtin.include_tasks: local-groups.yml
