@@ -19,17 +19,44 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          path: tcharl.ansible_localuser
       - name: install prereq
         run: |
+          cd tcharl.ansible_localuser
           ansible-galaxy role install -r requirements-standalone.yml
           ansible-galaxy collection install -r requirements-collections.yml
+  lint:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
-  molecule:
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          path: tcharl.ansible_localuser
+      - name: update apt
+        run: |
+          sudo apt update
+      - name: install aptitude packages
+        run: |
+          sudo apt -y install sudo python3 python3-pip
+      - name: pip install packages
+        run: |
+          pip3 install wheel setuptools tox
+      - name: tox lint
+        run: |
+          cd tcharl.ansible_localuser
+          tox -e lint
+  test:
     runs-on: ubuntu-latest
       # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          path: tcharl.ansible_localuser
       - name: add docker apt key
         run: |
           curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -42,21 +69,13 @@ jobs:
 #      - name: apt upgrade
 #        run: |
 #          sudo apt upgrade
-
-      - name: install tests prerequisite
+      - name: install aptitude packages
         run: |
           sudo apt -y install bridge-utils dnsmasq-base ebtables ca-certificates curl gcc iproute2 sudo rustc python3 python3-pip python3-setuptools docker-ce docker-ce-cli containerd.io
-      - name: Install molecule
+      - name: pip install packages
         run: |
           pip3 install wheel setuptools setuptools-rust tox
-      - name: execute lint
-        run: |
-          ln -s ../ansible-localuser ../tcharl.ansible_localuser
-          cd ../tcharl.ansible_localuser
-          tox -e lint
-
       - name: execute tests
         run: |
-          ln -s ../ansible-localuser ../tcharl.ansible_localuser | true
-          cd ../tcharl.ansible_localuser
+          cd tcharl.ansible_localuser
           tox -e test-exec
