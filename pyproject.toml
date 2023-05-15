@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "tcharl.ansible_users"
+name = "tcharl.ansible_localuser"
 version = "0.1.0"
-description = "Freeipa users and group management"
+description = "Linux local users and group management"
 authors = ["Charlie Mordant <cmordant1@gmail.com>"]
 license = "Apache2"
 readme = "README.md"
@@ -20,6 +20,7 @@ ansible-compat = "*"
 flake8 = "*"
 yamllint = "*"
 pytest-testinfra = "*"
+docker = "*"
 molecule-plugins = {version = "*", extras = ["docker"]}
 ansible-lint = "*"
 
