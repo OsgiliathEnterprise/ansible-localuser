@@ -10,7 +10,8 @@
     local_users_user_list:
       - name: cmordant
         group: cmordante
-        groups: wheel
+        groups:
+         - wheel
         cron_allow: false
         authorized_keys:
           - >
@@ -28,6 +29,7 @@
     local_systemusers_user_list:
       - name: systemuser
         group: cmordante
-        groups: wheel
+        groups:
+         - wheel
   roles:
     - role: tcharl.ansible_localuser

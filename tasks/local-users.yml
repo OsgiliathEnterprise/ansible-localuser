@@ -4,5 +4,5 @@
   ansible.builtin.include_role:
     name: robertdebock.users
   vars:
-    users_user_list: "{{ local_users_user_list | default([]) | json_query(\"[?!freeipa]\") | list }}"
+    users: "{{ local_users_user_list | default([]) | json_query(\"[?!freeipa]\") | list }}"
     ansible_become: true
