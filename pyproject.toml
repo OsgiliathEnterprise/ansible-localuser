@@ -19,7 +19,6 @@ jmespath = "^1.0.1"
 flake8 = "*"
 yamllint = "*"
 pytest-testinfra = "*"
-docker = "*"
 molecule-plugins = {version = "*", extras = ["docker"]}
 ansible-lint = {version = "^v6.22.1", markers = "platform_system != 'Windows'" }
 
