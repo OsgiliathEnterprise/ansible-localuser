@@ -18,11 +18,11 @@ jmespath = "^1.0.1"
 [tool.poetry.group.dev.dependencies]
 flake8 = "*"
 yamllint = "*"
-pytest-testinfra = "*"
 tox = "*"
+pytest-testinfra = "*"
 molecule = "25.1.0"
+molecule-plugins = {version = "*", extras = ["docker"]} # https://github.com/ansible-community/molecule-plugins/pull/237
 ansible-lint = { version = "v25.4.0", markers = "platform_system != 'Windows'" }
-molecule-plugins = {version = "*", extras = ["docker"]}
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,13 +1,14 @@
 ---
 dependency:
   name: galaxy
+  enabled: ${DEPENDENCY_ENABLED:-True}
   options:
-    role-file: requirements-standalone.yml
+    role-file: ${REQUIREMENTS_PATH:-requirements.yml}
     requirements-file: requirements-collections.yml
 driver:
   name: docker
 platforms:
-  - name: ansible-users-vm
+  - name: ansible-localuser
     image: fedora:38
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
