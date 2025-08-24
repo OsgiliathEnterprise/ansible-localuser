@@ -1,4 +1,0 @@
-.tox
-.poetry
-dist
-molecule/default/tests/__pycache__/*

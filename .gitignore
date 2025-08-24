@@ -1,4 +1,5 @@
 .tox
+.ansible
 .poetry
 dist
 molecule/default/tests/__pycache__/*

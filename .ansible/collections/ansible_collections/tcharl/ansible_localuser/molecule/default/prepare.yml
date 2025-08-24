@@ -1,7 +1,0 @@
----
-- name: Prepare
-  hosts: all
-  tasks:
-    - import_role:
-        name: tcharl.ansible_localuser
-        tasks_from: requirements.yml
