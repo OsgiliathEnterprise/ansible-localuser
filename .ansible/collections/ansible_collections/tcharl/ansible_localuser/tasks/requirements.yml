@@ -1,0 +1,10 @@
+---
+- name: Deps | import core_dependencies role
+  ansible.builtin.import_role:
+    name: robertdebock.core_dependencies
+  become: true
+
+- name: Deps | import bootstrap role
+  ansible.builtin.import_role:
+    name: robertdebock.bootstrap
+  become: true

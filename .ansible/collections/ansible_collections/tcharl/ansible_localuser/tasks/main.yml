@@ -1,0 +1,27 @@
+---
+# tasks file for ansible-users
+
+- name: Prerequisites
+  ansible.builtin.import_tasks: requirements.yml
+  when: standalone_role
+  tags:
+   - standalone_role
+
+- name: Loop over users_group_list for local users
+  ansible.builtin.include_tasks: local-groups.yml
+  when:
+    - local_users_group_list is defined
+
+- name: Loop over users_user_list for local users
+  ansible.builtin.include_tasks: local-users.yml
+  when:
+    - local_users_user_list is defined
+
+- name: Loop over systemusers_user_list
+  ansible.builtin.include_tasks: system-users.yml
+  loop: "{{ local_systemusers_user_list }}"
+  loop_control:
+    label: "{{ user.name }}"
+    loop_var: user
+  when:
+    - local_systemusers_user_list is defined

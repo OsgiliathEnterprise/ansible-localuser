@@ -1,0 +1,34 @@
+{
+ "collection_info": {
+  "namespace": "tcharl",
+  "name": "ansible_localuser",
+  "version": "1.0.1",
+  "authors": [
+   "Charlie Mordant <cmordant1@gmail.com>"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "linux",
+   "system",
+   "identity"
+  ],
+  "description": "Ansible roles to manage local linux users and groups",
+  "license": [
+   "Apache-2.0"
+  ],
+  "license_file": null,
+  "dependencies": {},
+  "repository": "https://github.com/OsgiliathEnterprise/ansible-localuser",
+  "documentation": "https://github.com/OsgiliathEnterprise/ansible-localuser/blob/master/README.md",
+  "homepage": "https://github.com/OsgiliathEnterprise/ansible-localuser",
+  "issues": "https://github.com/OsgiliathEnterprise/ansible-localuser/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "2619658637407b0c7c80656d842efeb738c59ffdf94173f5507d5d9ce2a45985",
+  "format": 1
+ },
+ "format": 1
+}
