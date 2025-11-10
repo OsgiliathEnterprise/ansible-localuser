@@ -23,6 +23,9 @@ rules:
     level: error
   comments:
     min-spaces-from-content: 1
+  octal-values:
+    forbid-implicit-octal: true
+    forbid-explicit-octal: true
   comments-indentation: disable
   document-start: disable
   octal-values:
