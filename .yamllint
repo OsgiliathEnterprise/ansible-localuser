@@ -28,8 +28,6 @@ rules:
     forbid-explicit-octal: true
   comments-indentation: disable
   document-start: disable
-  octal-values:
-    forbid-implicit-octal: true
   empty-lines:
     max: 3
     level: error
