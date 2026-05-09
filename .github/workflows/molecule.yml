@@ -68,8 +68,8 @@ jobs:
           sudo apt -y install sudo python3 python3-pip python3-wheel python3-setuptools podman
       - name: pip install packages
         run: |
-         sudo pip3 install wheel setuptools setuptools-rust tox
-      - name: execute tests
+          sudo pip3 install -I tox
+      - name: Test with podman
         env:
           ANSIBLE_REMOTE_TMP: /var/tmp/ansible-remote
         run: |
