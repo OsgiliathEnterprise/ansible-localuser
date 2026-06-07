@@ -74,7 +74,7 @@ jobs:
           sudo apt -y install sudo python3 podman
       - name: install uv
         run: |
-          pip install uv
+          sudo pip install uv
       - name: Test with podman
         env:
           ANSIBLE_REMOTE_TMP: /var/tmp/ansible-remote
